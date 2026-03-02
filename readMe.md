@@ -9,4 +9,4 @@ Nhiều hạng mục thông báo khác nhau theo dạng list
 
 
 ## Hình ảnh kết quả chạy
-![Kết quả chạy](./screenshots.png)
+![Kết quả chạy](./screenshots1.png)
