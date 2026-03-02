@@ -1,48 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
-function Square({ children, bgColor }) {
-  return (
-    <View style={[styles.box, { backgroundColor: bgColor }]}>
-      {children}
-    </View>
-  );
-}
+import { View, FlatList, Text } from 'react-native';
+import NotificationItem from './NotificationItem';
+import { notifications } from './data';
 
 export default function App() {
   return (
-    <View style={styles.screen}>
-      <Square bgColor="blue">
-        <Text style={styles.text}>Square 1</Text>
-      </Square>
+    <View style={{ flex: 1, padding: 16 }}>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 12 }}>
+        Thông báo
+      </Text>
 
-      <Square bgColor="yellow">
-        <Text style={styles.text}>Square 2</Text>
-      </Square>
-
-      <Square bgColor="red">
-        <Text style={styles.text}>Square 3</Text>
-      </Square>
+      <FlatList
+        data={notifications}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <NotificationItem item={item} />}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  box: {
-    width: 150,
-    height: 150,
-    margin:10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-});
